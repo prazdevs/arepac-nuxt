@@ -8,5 +8,9 @@
   "devDependencies": {
     "nuxt-windicss": "^2.2.5",
     "nuxt3": "latest"
+  },
+  "dependencies": {
+    "typeface-merriweather": "^1.1.13",
+    "typeface-open-sans": "^1.1.13"
   }
 }

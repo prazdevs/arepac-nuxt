@@ -3,6 +3,12 @@ lockfileVersion: 5.3
 specifiers:
   nuxt-windicss: ^2.2.5
   nuxt3: latest
+  typeface-merriweather: ^1.1.13
+  typeface-open-sans: ^1.1.13
+
+dependencies:
+  typeface-merriweather: 1.1.13
+  typeface-open-sans: 1.1.13
 
 devDependencies:
   nuxt-windicss: 2.2.5
@@ -5509,6 +5515,14 @@ packages:
     resolution: {integrity: sha512-reW2Y2Mpn0QNA/5fvtm5doROLwDPu2zOm5RtY7xQQS05Q7xgC8MOZ3yPNaP9m/s/sNjjFQtHo7VCNqYW2iI+Ig==}
     engines: {node: '>=12.20'}
     dev: true
+
+  /typeface-merriweather/1.1.13:
+    resolution: {integrity: sha512-ho6xe/y/uHIKVXsFtK+dJfRCD5KZqJCMYTCcXfuCwQHQbeQ83a7hVkxfRMTEIjZOSXw5SevOjnwJuZ5QgWEHiw==}
+    dev: false
+
+  /typeface-open-sans/1.1.13:
+    resolution: {integrity: sha512-lVGVHvYl7UJDFB9vN8r7NHw3sVm7Rjeow6b9AeABc/J+2mDaCkmcdVtw3QZnsJW39P+xm5zeggIj9gLHYGn9Iw==}
+    dev: false
 
   /ufo/0.7.10:
     resolution: {integrity: sha512-YTnDRlE1cIofRqOFN8ioAbz9qenDvkgVMSn0cnxvIDjM9sfEOMKB0ybMr+otSlCXMfQ/X35haYRoI7Nua82RrA==}

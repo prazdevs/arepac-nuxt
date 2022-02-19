@@ -6,7 +6,9 @@ const { headerLinks, isExpanded } = useNav()
   <header class="header">
     <div class="header__content">
       <nuxt-link to="/" class="header__brand">
-        arepac
+        <img class="header__brand-img" src="~/assets/arepac.svg" alt="" />
+        <span class="header__brand-text">arepac</span>
+        
       </nuxt-link>
       <button 
         class="header__menu-button"
@@ -42,8 +44,16 @@ const { headerLinks, isExpanded } = useNav()
 
   .header__brand {
     @apply flex items-center
-    @apply text-black no-underline font-serif text-3xl uppercase
+    @apply text-black no-underline
     @apply hover:text-primary
+  }
+
+  .header__brand-img {
+    @apply mr-2 h-10
+  }
+
+  .header__brand-text {
+    @apply font-serif text-3xl uppercase
   }
 
   .header__menu-button {
