@@ -1,47 +1,35 @@
 <script setup lang="ts">
 const { footerLinks } = useNav()
-const year = new Date().getFullYear()
+const { copyright } = useSiteMetadata()
 </script>
 
 <template>
-  <footer class="footer">
-    <nav class="footer__nav">
-      <p class="footer__nav-copyright">
-        {{ `© Copyright ${year} - AREPAC` }}
+  <footer w:bg="gray-300" w:shadow="top">
+    <nav 
+      w:flex="~ col sm:row"
+      w:align="items-center"
+      w:justify="sm:between"
+      w:space-y="1"
+      w:max-w="4xl"
+      w:p="4 md:8"
+      w:mx="auto"
+    >
+      <p w:text="black">
+        {{ copyright }}
       </p>
-      <div class="footer__nav-links">
-        <nuxt-link 
+      <div 
+        w:flex="~ col"
+        w:align="items-center sm:items-end"
+        w:space-y="2 sm:0"
+      >
+        <NuxtLink
           v-for="link in footerLinks"
-          class="footer__nav-link"
+          w:text="underline hover:no-underline"
           :to="link.route"
         >
           {{ link.label }}
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </nav>
   </footer>
 </template>
-
-<style scoped lang="postcss">
-  .footer {
-    @apply bg-gray-300 shadow-md
-  }
-
-  .footer__nav {
-    @apply flex flex-col items-center sm:flex-row sm:justify-between
-    @apply space-y-1 max-w-4xl p-4 mx-auto md:p-8
-  }
-
-  .footer__nav-copyright {
-    @apply text-black
-  }
-
-  .footer__nav-links {
-    @apply flex flex-col items-center sm:items-end
-    @apply space-y-2 sm:space-y-0
-  }
-
-  .footer__nav-link {
-    @apply underline hover:no-underline
-  }
-</style>

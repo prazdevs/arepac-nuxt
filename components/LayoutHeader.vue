@@ -1,77 +1,69 @@
 <script setup lang="ts">
 const { headerLinks, isExpanded } = useNav()
+const { title } = useSiteMetadata()
+const { afterEach } = useRouter()
+
+afterEach(() => { isExpanded.value = false })
 </script>
 
 <template>
-  <header class="header">
-    <div class="header__content">
-      <nuxt-link to="/" class="header__brand">
-        <img class="header__brand-img" src="~/assets/arepac.svg" alt="" />
-        <span class="header__brand-text">arepac</span>
-        
-      </nuxt-link>
+  <header w:bg="gray-300" w:shadow="md">
+    <div 
+      w:flex="~ wrap"
+      w:align="items-center"
+      w:justify="between"
+      w:max-w="4xl"
+      w:p="4 sm:8"
+      w:mx="auto"
+    >
+      <NuxtLink 
+        to="/"
+        w:flex="~"
+        w:align="items-center"
+        w:text="black no-underline hover:primary"
+      >
+        <img w:mr="2" w:h="10" src="~/assets/svgs/arepac.svg" alt="" />
+        <span w:text="3xl uppercase" w:font="serif">
+          {{ title }}
+        </span>
+      </NuxtLink>
       <button 
-        class="header__menu-button"
+        w:flex="~"
+        w:align="items-center"
+        w:border="rounded"
+        w:display="sm:hidden"
+        w:text="2xl black"
         aria-label="Menu"
         @click="isExpanded = !isExpanded"
       >
-        X
-        <!-- hamburger icon -->
+        <i-gg-close v-if="isExpanded" />
+        <i-gg-menu v-else />
       </button>
-      <nav class="header__nav" :w:display="isExpanded ? 'block' : 'hidden'">
+      <nav
+        w:w="full sm:auto"
+        w:flex="sm:~"
+        w:align="sm:items-center"
+        :w:display="isExpanded ? 'sm:block' : 'hidden'"
+      >
         <div 
           v-for="link in headerLinks"
-          class="header__nav-link" 
+          w:display="block sm:inline-block"
+          w:mt="4 sm:0"
+          w:ml="sm:6"
+          w:text="lg black hover:primary"
+          w:font="bold"
           :key="link.route"
         >
-          <nuxt-link :to="link.route" active-class="header__nav-link--active">
-            {{ link.label }}
-          </nuxt-link>
+          <NuxtLink :to="link.route" v-slot="{ isActive }">
+            <span
+              :w:text="isActive ? 'primary' : ''"
+              :w:border="isActive ? 'b-2 primary' : ''"
+            >
+              {{ link.label }}
+            </span>
+          </NuxtLink>
         </div>
       </nav>
     </div>
   </header>
 </template>
-
-<style scoped lang="postcss">
-  .header {
-    @apply bg-gray-300 shadow-md
-  }
-  .header__content {
-    @apply flex flex-wrap items-center justify-between
-    @apply max-w-4xl p-4 mx-auto sm:p-8
-  }
-
-  .header__brand {
-    @apply flex items-center
-    @apply text-black no-underline
-    @apply hover:text-primary
-  }
-
-  .header__brand-img {
-    @apply mr-2 h-10
-  }
-
-  .header__brand-text {
-    @apply font-serif text-3xl uppercase
-  }
-
-  .header__menu-button {
-    @apply flex items-center block rounded sm:hidden
-    @apply text-black
-  }
-
-  .header__nav {
-    @apply w-full sm:w-auto sm:block sm:flex sm:items-center
-  }
-
-  .header__nav-link {
-    @apply block mt-4 sm:inline-block sm:mt-0 sm:ml-6
-    @apply font-bold text-black text-lg
-    @apply hover:text-primary
-  }
-
-  .header__nav-link--active {
-    @apply text-primary border-b-2 border-primary
-  }
-</style>
