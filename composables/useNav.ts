@@ -10,8 +10,8 @@ export default () => ({
     },
     {
       route: '/gdpr',
-      label: 'RGPD'
-    }
+      label: 'RGPD',
+    },
   ],
   headerLinks: [
     {
@@ -25,7 +25,7 @@ export default () => ({
     {
       route: `/archives/`,
       label: `les archives`,
-    }
+    },
   ],
-  isExpanded: ref(false)
+  isExpanded: ref(false),
 })

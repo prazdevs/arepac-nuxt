@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { descriptionText, membersText, membersMembers, partners, registration } = useContent()
+const { descriptionText, membersText, membersMembers, partners, registration } =
+  useContent()
 </script>
 
 <template>
@@ -14,20 +15,20 @@ const { descriptionText, membersText, membersMembers, partners, registration } =
           {{ descriptionText }}
         </div>
       </div>
-      <div w:mt="4" w:w="3/4 sm:1/3" w:align="self-center">
-        <img src="~/assets/svgs/medicine.svg" alt="" />
+      <div w:align="self-center" w:mt="4" w:w="3/4 sm:1/3">
+        <img alt="" src="~/assets/svgs/medicine.svg" />
         <div></div>
       </div>
     </div>
     <!-- Members -->
-    <div w:flex="~ col" w:align="items-center">
+    <div w:align="items-center" w:flex="~ col">
       <SectionTitle label="Les membres du bureau" />
       <div w:mb="2">
         {{ membersText }}
       </div>
       <img
-        src="~/assets/images/membres.webp"
         alt="Photo des membres du bureau"
+        src="~/assets/images/membres.webp"
         w:w="sm:3/4"
       />
       <div w:font="italic" w:w="sm:3/4">
@@ -38,21 +39,18 @@ const { descriptionText, membersText, membersMembers, partners, registration } =
     <div>
       <SectionTitle label="Les partenaires" />
       <div w:grid="~ cols-2 gap-4 sm:cols-3 md:cols-4">
-        <a 
+        <a
           v-for="partner in partners"
-          target="_blank"
-          rel="noreferrer noopener"
-          :href="partner.link"
           :key="partner.name"
-          w:flex="~"
+          :href="partner.link"
+          rel="noreferrer noopener"
+          target="_blank"
           w:align="items-center"
+          w:flex="~"
           w:h="full"
           w:p="2"
         >
-          <img 
-            :alt="partner.name"
-            src="~/assets/images/fake.webp"
-            w:w="full" />
+          <img :alt="partner.name" src="~/assets/images/fake.webp" w:w="full" />
         </a>
       </div>
     </div>

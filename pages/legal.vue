@@ -1,2 +1,1 @@
-<template>
-mentions legales</template>
+<template>mentions legales</template>

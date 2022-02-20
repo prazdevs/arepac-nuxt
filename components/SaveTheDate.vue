@@ -15,11 +15,11 @@ const formattedDate = computed(() =>
   <div
     role="alert"
     w:bg="red-50"
-    w:flex="~"
     w:border="primary t-2 rounded-b"
-    w:shadow="md"
+    w:flex="~"
     w:px="3"
     w:py="2"
+    w:shadow="md"
     w:text="primary left"
   >
     <img
@@ -31,19 +31,19 @@ const formattedDate = computed(() =>
       w:mr="3"
     />
     <div w:flex="~ col" w:w="full">
-      <p w:font="bold">
-        {{ "Save the date!" }}
-      </p>
+      <p w:font="bold">Save the date!</p>
       <p>
-        {{ `Le prochain congrès aura lieu le ${formattedDate}, pour y participer, pensez à remplir le formulaire d'inscription` }}
+        {{
+          `Le prochain congrès aura lieu le ${formattedDate}, pour y participer, pensez à remplir le formulaire d'inscription`
+        }}
       </p>
-      <NuxtLink 
+      <NuxtLink
         to="/congress/#congress-form"
         w:align="self-end"
         w:font="semibold"
         w:text="underline hover:no-underline"
       >
-        {{ "S'inscrire →" }}
+        S'inscrire →
       </NuxtLink>
     </div>
   </div>

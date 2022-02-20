@@ -1,15 +1,15 @@
 <script setup lang="ts">
-defineProps<{ h1?: boolean, label: string }>()
+defineProps<{ h1?: boolean; label: string }>()
 </script>
 
 <template>
-  <div w:text="2xl" w:mb="4" w:flex="~" w:justify="center">
+  <div w:flex="~" w:justify="center" w:mb="4" w:text="2xl">
     <component
       :is="h1 ? 'h1' : 'h2'"
+      w:border="b-2 secondary"
+      w:font="normal"
       w:m="0"
       w:text="2xl"
-      w:font="normal"
-      w:border="b-2 secondary"
     >
       {{ label }}
     </component>

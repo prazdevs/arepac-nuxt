@@ -3,61 +3,63 @@ const { headerLinks, isExpanded } = useNav()
 const { title } = useSiteMetadata()
 const { afterEach } = useRouter()
 
-afterEach(() => { isExpanded.value = false })
+afterEach(() => {
+  isExpanded.value = false
+})
 </script>
 
 <template>
   <header w:bg="gray-300" w:shadow="md">
-    <div 
-      w:flex="~ wrap"
+    <div
       w:align="items-center"
+      w:flex="~ wrap"
       w:justify="between"
       w:max-w="4xl"
-      w:p="4 sm:8"
       w:mx="auto"
+      w:p="4 sm:8"
     >
-      <NuxtLink 
+      <NuxtLink
         to="/"
-        w:flex="~"
         w:align="items-center"
+        w:flex="~"
         w:text="black no-underline hover:primary"
       >
-        <img w:mr="2" w:h="10" src="~/assets/svgs/arepac.svg" alt="" />
-        <span w:text="3xl uppercase" w:font="serif">
+        <img alt="" src="~/assets/svgs/arepac.svg" w:h="10" w:mr="2" />
+        <span w:font="serif" w:text="3xl uppercase">
           {{ title }}
         </span>
       </NuxtLink>
-      <button 
-        w:flex="~"
+      <button
+        aria-label="Menu"
         w:align="items-center"
         w:border="rounded"
         w:display="sm:hidden"
+        w:flex="~"
         w:text="2xl black"
-        aria-label="Menu"
         @click="isExpanded = !isExpanded"
       >
         <i-gg-close v-if="isExpanded" />
         <i-gg-menu v-else />
       </button>
       <nav
-        w:w="full sm:auto"
-        w:flex="sm:~"
         w:align="sm:items-center"
         :w:display="isExpanded ? 'sm:block' : 'hidden'"
+        w:flex="sm:~"
+        w:w="full sm:auto"
       >
-        <div 
+        <div
           v-for="link in headerLinks"
-          w:display="block sm:inline-block"
-          w:mt="4 sm:0"
-          w:ml="sm:6"
-          w:text="lg black hover:primary"
-          w:font="bold"
           :key="link.route"
+          w:display="block sm:inline-block"
+          w:font="bold"
+          w:ml="sm:6"
+          w:mt="4 sm:0"
+          w:text="lg black hover:primary"
         >
-          <NuxtLink :to="link.route" v-slot="{ isActive }">
+          <NuxtLink v-slot="{ isActive }" :to="link.route">
             <span
-              :w:text="isActive ? 'primary' : ''"
               :w:border="isActive ? 'b-2 primary' : ''"
+              :w:text="isActive ? 'primary' : ''"
             >
               {{ link.label }}
             </span>

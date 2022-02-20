@@ -1,3 +1,1 @@
-<template>
-archives page
-</template>
+<template>archives page</template>

@@ -1,3 +1,1 @@
-<template>
-rgpd
-</template>
+<template>rgpd</template>

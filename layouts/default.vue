@@ -1,21 +1,16 @@
 <template>
-  <div class="layout">
+  <div w:flex="~ col" w:font="sans" w:min-h="screen" w:text="gray-900">
     <LayoutHeader />
-    <main class="content">
+    <main
+      w:flex="1"
+      w:max-w="4xl"
+      w:mx="auto"
+      w:px="4 md:8"
+      w:py="8 "
+      w:w="full"
+    >
       <slot />
     </main>
     <LayoutFooter />
   </div>
 </template>
-
-<style scoped lang="postcss">
-  .layout {
-    @apply flex flex-col min-h-screen
-    @apply font-sans text-gray-900
-  }
-
-  .content {
-    @apply flex-1 w-full max-w-4xl
-    @apply px-4 py-8 mx-auto md:px-8 md:py-8
-  }
-</style>

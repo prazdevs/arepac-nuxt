@@ -1,2 +1,1 @@
-<template>
-nous contacter</template>
+<template>nous contacter</template>
