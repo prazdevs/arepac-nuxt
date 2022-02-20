@@ -4,9 +4,6 @@ import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtConfig({
-  nitro: {
-    preset: 'lambda',
-  },
   privateRuntimeConfig: {
     RECAPTCHA_SECRET: process.env.RECAPTCHA_SECRET,
   },
