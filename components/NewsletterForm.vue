@@ -1,11 +1,17 @@
 <script setup lang="ts">
+import { useReCaptcha } from 'vue-recaptcha-v3'
+
 const { newsletter } = useContent()
+const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
 
 const fullName = ref('')
 const email = ref('')
 
-function submitForm () {
-  console.log(fullName.value, email.value)
+async function submitForm () {
+  await recaptchaLoaded()
+
+  const token = await executeRecaptcha('newsletter')
+  console.log(token)
 }
 </script>
 
@@ -34,7 +40,6 @@ function submitForm () {
           <NewsletterField label="Nom complet" v-model="fullName">
             <template #icon>
               <i-gg-user />
-              
             </template>
           </NewsletterField>
         </div>
@@ -43,12 +48,9 @@ function submitForm () {
           <NewsletterField label="Email" type="email" v-model="email">
             <template #icon>
               <i-gg-mail />
-              
             </template>
           </NewsletterField>
-
         </div>
-        <!-- captcha -->
         <!-- button -->
         <button
           type="submit"

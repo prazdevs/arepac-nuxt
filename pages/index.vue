@@ -14,7 +14,7 @@ const { descriptionText, membersText, membersMembers, partners, registration } =
           {{ descriptionText }}
         </div>
       </div>
-      <div w:w="3/4 sm:1/3" w:align="self-center">
+      <div w:mt="4" w:w="3/4 sm:1/3" w:align="self-center">
         <img src="~/assets/svgs/medicine.svg" alt="" />
         <div></div>
       </div>

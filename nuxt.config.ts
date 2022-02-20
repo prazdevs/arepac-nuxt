@@ -4,6 +4,9 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtConfig({
+  privateRuntimeConfig: {
+    RECAPTCHA_SECRET: process.env.RECAPTCHA_SECRET
+  },
   buildModules: [
     'nuxt-windicss',
   ],
