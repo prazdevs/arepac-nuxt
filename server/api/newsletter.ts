@@ -11,11 +11,7 @@ export default async (
   //* Only accepts POST requests
   if (useMethod(req) !== 'POST') return res.writeHead(405).end()
 
-  const { email, fullname, token } = await useBody<{
-    email: string
-    fullname: string
-    token: string
-  }>(req)
+  const { email, fullname, token } = await useBody(req)
 
   //* Requires 3 parameters
   if (!email || !fullname || !token) return res.writeHead(400).end()

@@ -4,14 +4,22 @@ import { useReCaptcha } from 'vue-recaptcha-v3'
 const { newsletter } = useContent()
 const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
 
-const fullName = ref('')
+const fullname = ref('')
 const email = ref('')
 
 async function submitForm() {
   await recaptchaLoaded()
 
   const token = await executeRecaptcha('newsletter')
-  console.log(token)
+
+  const { error } = await useFetch('/api/newsletter', {
+    method: 'POST',
+    body: { fullname: fullname.value, email: email.value, token },
+  })
+
+  const err = error.value?.response.status
+
+  if (err) alert(`Une erreur est survenue`)
 }
 </script>
 
@@ -31,7 +39,7 @@ async function submitForm() {
       <form novalidate @submit.prevent="submitForm">
         <!-- name -->
         <div w:flex="~ col" w:mb="2">
-          <NewsletterField v-model="fullName" label="Nom complet">
+          <NewsletterField v-model="fullname" label="Nom complet">
             <template #icon>
               <i-gg-user />
             </template>
