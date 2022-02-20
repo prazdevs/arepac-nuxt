@@ -6,6 +6,8 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.34",
+    "@vuelidate/validators": "^2.0.0-alpha.26",
     "typeface-merriweather": "^1.1.13",
     "typeface-open-sans": "^1.1.13"
   },

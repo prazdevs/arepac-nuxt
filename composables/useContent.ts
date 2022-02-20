@@ -48,5 +48,12 @@ export default () => ({
       link: "https://arepac.fr",
       image: "~/assets/images/fake.webp",
     },
-  ]
+  ],
+  registration: {
+    open: true,
+    date: '2021-11-27T22:00:00.000Z',
+  },
+  newsletter: {
+    text: "Inscrivez-vous à la newsletter pour recevoir par email des informations relatives à l'AREPAC et au congrès."
+  }
 })

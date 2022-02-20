@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const { descriptionText, membersText, membersMembers, partners } = useContent()
+const { descriptionText, membersText, membersMembers, partners, registration } = useContent()
 </script>
 
 <template>
   <section class="space-y-12" w:text="center">
+    <!-- Save the date -->
+    <SaveTheDate v-if="registration.open" :date="registration.date" />
     <!-- Description -->
     <div w:flex="~ col sm:row" w:space-y="2">
       <div w:mr="sm:4" w:w="sm:2/3">
@@ -55,5 +57,6 @@ const { descriptionText, membersText, membersMembers, partners } = useContent()
       </div>
     </div>
     <!-- Newsletter -->
+    <NewsletterForm />
   </section>
 </template>
