@@ -22,5 +22,7 @@ export default defineEventHandler(async event => {
 
   if (!success || score < 0.5) throw createError({ statusCode: 403 })
 
+  console.log('New client', email, fullname)
+
   // TODO : call SendinBlue API to add new line
 })
