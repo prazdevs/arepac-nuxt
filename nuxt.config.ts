@@ -1,9 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  nitro: {
-    preset: 'netlify-edge',
-  },
   buildModules: ['nuxt-windicss', 'unplugin-icons/nuxt'],
   css: ['typeface-open-sans', 'typeface-merriweather'],
   privateRuntimeConfig: {
