@@ -6,7 +6,8 @@ export default defineEventHandler(async event => {
   }>(event)
 
   //* Requires 3 parameters
-  if (!email || !fullname || !token) throw createError({ statusCode: 400 })
+  if (!email || !fullname || !token)
+    throw createError({ statusCode: 400, statusMessage: 'Bad Request' })
 
   //* Verifies issued token
   const { success, score } = await $fetch<{ success: boolean; score: number }>(
@@ -20,7 +21,10 @@ export default defineEventHandler(async event => {
     }
   )
 
-  if (!success || score < 0.5) throw createError({ statusCode: 403 })
+  console.info('Got score:', score)
+
+  if (!success || score < 0.5)
+    throw createError({ statusCode: 403, statusMessage: 'Forbidden' })
 
   console.log('New client', email, fullname)
 
