@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useReCaptcha } from 'vue-recaptcha-v3'
 
+import IconMail from '~icons/gg/mail'
+import IconUser from '~icons/gg/user'
+
 const { newsletter } = useContent()
 const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
 
@@ -41,7 +44,7 @@ async function submitForm() {
         <div w:flex="~ col" w:mb="2">
           <NewsletterField v-model="fullname" label="Nom complet">
             <template #icon>
-              <i-gg-user />
+              <IconUser />
             </template>
           </NewsletterField>
         </div>
@@ -49,7 +52,7 @@ async function submitForm() {
         <div w:flex="~ col" w:mb="2">
           <NewsletterField v-model="email" label="Email" type="email">
             <template #icon>
-              <i-gg-mail />
+              <IconMail />
             </template>
           </NewsletterField>
         </div>

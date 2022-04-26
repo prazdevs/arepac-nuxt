@@ -1,23 +1,11 @@
-import { defineNuxtConfig } from 'nuxt3'
-import IconsResolver from 'unplugin-icons/resolver'
-import Icons from 'unplugin-icons/vite'
-import Components from 'unplugin-vue-components/vite'
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
+  buildModules: ['nuxt-windicss', 'unplugin-icons/nuxt'],
+  css: ['typeface-open-sans', 'typeface-merriweather'],
   privateRuntimeConfig: {
     RECAPTCHA_SECRET: process.env.RECAPTCHA_SECRET,
   },
-  buildModules: ['nuxt-windicss'],
-  vite: {
-    plugins: [
-      Icons(),
-      Components({
-        resolvers: [IconsResolver()],
-        dts: false,
-      }),
-    ],
-  },
-  css: ['typeface-open-sans', 'typeface-merriweather'],
   windicss: {
     config: {
       attributify: { prefix: 'w:' },

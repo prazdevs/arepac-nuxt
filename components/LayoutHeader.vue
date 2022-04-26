@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import IconClose from '~icons/gg/close'
+import IconMenu from '~icons/gg/menu'
+
 const { headerLinks, isExpanded } = useNav()
 const { title } = useSiteMetadata()
 const { afterEach } = useRouter()
@@ -38,8 +41,8 @@ afterEach(() => {
         w:text="2xl black"
         @click="isExpanded = !isExpanded"
       >
-        <i-gg-close v-if="isExpanded" />
-        <i-gg-menu v-else />
+        <IconClose v-if="isExpanded" />
+        <IconMenu v-else />
       </button>
       <nav
         w:align="sm:items-center"
