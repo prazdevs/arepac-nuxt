@@ -13,7 +13,7 @@
     "vue-recaptcha-v3": "^2.0.1"
   },
   "devDependencies": {
-    "@iconify/json": "^2.1.31",
+    "@iconify/json": "^2.1.32",
     "@prazdevs/eslint-config": "^3.2.1",
     "eslint": "^8.14.0",
     "nuxt": "3.0.0-rc.1",
